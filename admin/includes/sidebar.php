@@ -4,16 +4,24 @@
     <aside :class="sidebarToggle ? 'translate-x-0 lg:w-[90px]' : '-translate-x-full'"
         class="sidebar fixed left-0 top-0 z-9999 flex h-screen w-[290px] flex-col overflow-y-hidden border-r border-gray-200 bg-white px-5 dark:border-gray-800 dark:bg-black lg:static lg:translate-x-0">
         <!-- SIDEBAR HEADER -->
-        <div :class="sidebarToggle ? 'justify-center' : 'justify-between'"
-            class="flex items-center gap-2 pt-8 sidebar-header pb-7">
-            <a href="index.html">
-                <span class="logo" :class="sidebarToggle ? 'hidden' : ''">
-                    <img class="dark:hidden" src="../assets/images/logo/logo.svg" alt="Logo" />
-                    <img class="hidden dark:block" src="../assets/images/logo/logo-dark.svg" alt="Logo" />
+        <!-- SIDEBAR HEADER -->
+        <div class="flex items-center justify-center gap-2 pt-8 pb-7 sidebar-header"
+            :class="sidebarToggle ? 'justify-center' : 'justify-center'">
+
+            <a href="index.php" style="display:flex; justify-content:center; align-items:center; width:100%;">
+
+                <!-- Full Logo -->
+                <span class="logo" :class="sidebarToggle ? 'hidden' : ''"
+                    style="display:flex; justify-content:center; width:100%;">
+
+                    <img class="dark:hidden" style="max-width:100px; height:auto;" src="../assets/images/logo/logo1.png"
+                        alt="Logo">
+
+                    <img class="hidden dark:block" style="max-width:100px; height:auto;"
+                        src="../assets/images/logo/logo1.png" alt="Logo">
+
                 </span>
 
-                <img class="logo-icon" :class="sidebarToggle ? 'lg:block' : 'hidden'"
-                    src="../assets/images/logo/logo-icon.svg" alt="Logo" />
             </a>
         </div>
         <!-- SIDEBAR HEADER -->
@@ -59,12 +67,50 @@
                             </a>
                         </li>
 
-                        <!-- Menu Item Calendar -->
+                        <!-- Menu My Drive -->
                         <li>
-                            <a href="../admin/calendar.php"
-                                @click="selected = (selected === 'Calendar' ? '':'Calendar')" class="menu-item group"
-                                :class=" (selected === 'Calendar') && (page === 'calendar') ? 'menu-item-active' : 'menu-item-inactive'">
-                                <svg :class="(selected === 'Calendar') && (page === 'calendar') ? 'menu-item-icon-active'  :'menu-item-icon-inactive'"
+                            <a href="../admin/my_drive.php"
+                                @click="selected = (selected === 'My Drive' ? '':'My Drive')" class="menu-item group"
+                                :class=" (selected === 'My Drive') && (page === 'my_drive') ? 'menu-item-active' : 'menu-item-inactive'">
+                                <svg :class="(selected === 'My Drive') || (page === 'ecommerce' || page === 'analytics' || page === 'marketing' || page === 'crm' || page === 'stocks') ? 'menu-item-icon-active'  :'menu-item-icon-inactive'"
+                                    width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M10 4.5C9.20435 4.5 8.44129 4.81607 7.87868 5.37868C7.31607 5.94129 7 6.70435 7 7.5H4C2.89543 7.5 2 8.39543 2 9.5V18.5C2 19.6046 2.89543 20.5 4 20.5H20C21.1046 20.5 22 19.6046 22 18.5V8.5C22 7.39543 21.1046 6.5 20 6.5H12.8284L11.4142 5.08579C10.8516 4.52317 10.0885 4.5 10 4.5ZM4 9.5H20V18.5H4V9.5Z"
+                                        fill="currentColor" />
+                                </svg>
+
+                                <span class="menu-item-text" :class="sidebarToggle ? 'lg:hidden' : ''">
+                                    My Drive
+                                </span>
+                            </a>
+                        </li>
+
+                        <!-- Menu Shared with me -->
+                        <li>
+                            <a href="../admin/shared_with_me.php"
+                                @click="selected = (selected === 'Shared with me' ? '':'Shared with me')"
+                                class="menu-item group"
+                                :class=" (selected === 'Shared with me') && (page === 'shared_with_me') ? 'menu-item-active' : 'menu-item-inactive'">
+                                <svg :class="(selected === 'Shared with me') || (page === 'ecommerce' || page === 'analytics' || page === 'marketing' || page === 'crm' || page === 'stocks') ? 'menu-item-icon-active'  :'menu-item-icon-inactive'"
+                                    width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M10 4.5C9.20435 4.5 8.44129 4.81607 7.87868 5.37868C7.31607 5.94129 7 6.70435 7 7.5H4C2.89543 7.5 2 8.39543 2 9.5V18.5C2 19.6046 2.89543 20.5 4 20.5H20C21.1046 20.5 22 19.6046 22 18.5V8.5C22 7.39543 21.1046 6.5 20 6.5H12.8284L11.4142 5.08579C10.8516 4.52317 10.0885 4.5 10 4.5ZM4 9.5H20V18.5H4V9.5Z"
+                                        fill="currentColor" />
+                                </svg>
+
+                                <span class="menu-item-text" :class="sidebarToggle ? 'lg:hidden' : ''">
+                                    Shared with me
+                                </span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="../admin/trash.php" @click="selected = (selected === 'Trash' ? '':'Trash')"
+                                class="menu-item group"
+                                :class=" (selected === 'Trash') && (page === 'trash') ? 'menu-item-active' : 'menu-item-inactive'">
+                                <svg :class="(selected === 'Trash') && (page === 'trash') ? 'menu-item-icon-active'  :'menu-item-icon-inactive'"
                                     width="24" height="24" viewBox="0 0 24 24" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -73,7 +119,7 @@
                                 </svg>
 
                                 <span class="menu-item-text" :class="sidebarToggle ? 'lg:hidden' : ''">
-                                    Calendar
+                                    Trash
                                 </span>
                             </a>
                         </li>

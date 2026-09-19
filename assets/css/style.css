@@ -247,10 +247,6 @@ svg{-ms-touch-action:none;touch-action:none}image,text,.jvm-zoomin,.jvm-zoomout{
     display: block;
     vertical-align: middle;
   }
-  img, video {
-    max-width: 100%;
-    height: auto;
-  }
   ::-webkit-file-upload-button {
     font: inherit;
     -webkit-font-feature-settings: inherit;
@@ -3640,6 +3636,7 @@ svg{-ms-touch-action:none;touch-action:none}image,text,.jvm-zoomin,.jvm-zoomout{
 .sidebar:hover .logo {
   display: block;
 }
+
 .sidebar:hover .logo-icon {
   display: none;
 }
